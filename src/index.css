@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties ── */
+:root {
+  --forsythia:  #FFC801;
+  --nocturnal:  #114C5A;
+  --arctic:     #F1F6F4;
+  --mystic:     #D9E8E2;
+  --saffron:    #FF9932;
+  --oceanic:    #172B36;
+
+  --ease-micro: cubic-bezier(0, 0, 0.2, 1);       /* ease-out 150-200ms */
+  --ease-layout: cubic-bezier(0.4, 0, 0.2, 1);    /* ease-in-out 300-400ms */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--oceanic);
+  color: var(--arctic);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Entry Orchestration (< 500ms total) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.8; }
+  50%  { transform: scale(1.05); opacity: 0.4; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+@keyframes data-flow {
+  0%   { stroke-dashoffset: 1000; opacity: 0.2; }
+  50%  { opacity: 1; }
+  100% { stroke-dashoffset: 0;    opacity: 0.2; }
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Hero animations ── */
+.hero-headline {
+  animation: fadeUp 0.4s var(--ease-micro) 0.05s both;
+}
+.hero-sub {
+  animation: fadeUp 0.4s var(--ease-micro) 0.15s both;
+}
+.hero-cta {
+  animation: fadeUp 0.4s var(--ease-micro) 0.25s both;
+}
+.hero-badge {
+  animation: fadeUp 0.35s var(--ease-micro) 0s both;
+}
+
+/* ── SVG Data Flow ── */
+.data-flow-path {
+  stroke-dasharray: 1000;
+  animation: data-flow 3s linear infinite;
+}
+
+/* ── Ticker ── */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 22s linear infinite;
+}
+
+/* ── Navbar ── */
+.nav-link {
+  transition: color 180ms var(--ease-micro);
+}
+.nav-link:hover { color: var(--forsythia); }
+
+/* ── Button micro-interactions ── */
+.btn-primary {
+  transition: background-color 180ms var(--ease-micro),
+              transform 180ms var(--ease-micro),
+              box-shadow 180ms var(--ease-micro);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255, 200, 1, 0.3);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  transition: background-color 180ms var(--ease-micro),
+              border-color 180ms var(--ease-micro);
+}
+.btn-ghost:hover {
+  background-color: rgba(255, 200, 1, 0.08);
+  border-color: var(--forsythia);
+}
+
+/* ── Bento Grid ── */
+.bento-card {
+  transition: transform 180ms var(--ease-micro),
+              box-shadow 180ms var(--ease-micro),
+              border-color 180ms var(--ease-micro);
+  cursor: pointer;
+}
+.bento-card:hover,
+.bento-card.active {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255, 200, 1, 0.12);
+  border-color: var(--forsythia);
+}
+
+/* ── Accordion ── */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 350ms var(--ease-layout),
+              opacity 300ms var(--ease-layout);
+  opacity: 0;
+}
+.accordion-content.open {
+  max-height: 400px;
+  opacity: 1;
+}
+.accordion-header {
+  transition: background-color 180ms var(--ease-micro),
+              color 180ms var(--ease-micro);
+}
+.accordion-header:hover { background-color: rgba(255,200,1,0.06); }
+
+.accordion-icon {
+  transition: transform 300ms var(--ease-layout);
+}
+.accordion-icon.open { transform: rotate(45deg); }
+
+/* ── Pricing ── */
+.pricing-toggle-btn {
+  transition: background-color 180ms var(--ease-micro),
+              color 180ms var(--ease-micro);
+}
+.price-value {
+  transition: opacity 150ms var(--ease-micro);
+}
+.pricing-card {
+  transition: transform 200ms var(--ease-micro),
+              box-shadow 200ms var(--ease-micro);
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(17, 76, 90, 0.4);
+}
+.pricing-card.featured {
+  box-shadow: 0 0 0 2px var(--forsythia), 0 16px 48px rgba(255,200,1,0.2);
+}
+
+/* ── Social proof card ── */
+.testimonial-card {
+  transition: transform 180ms var(--ease-micro),
+              border-color 180ms var(--ease-micro);
+}
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 200, 1, 0.3);
+}
+
+/* ── Section fade-in on scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s var(--ease-layout),
+              transform 0.5s var(--ease-layout);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
