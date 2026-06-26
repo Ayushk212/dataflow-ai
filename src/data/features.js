@@ -8,7 +8,7 @@ export const FEATURES = [
     stat: '99.9%',
     statLabel: 'Pipeline Uptime',
     accent: '#FFC801',
-    size: 'large', // spans 2 cols
+    size: 'small', // equal col
     icon: (
       `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="20" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -69,7 +69,7 @@ export const FEATURES = [
     stat: 'SOC 2',
     statLabel: 'Type II Certified',
     accent: '#FFC801',
-    size: 'small',
+    size: 'large', // spans 2 cols
     icon: (
       `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M24 4L6 12v12c0 10.5 7.7 20.3 18 23 10.3-2.7 18-12.5 18-23V12L24 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -86,7 +86,7 @@ export const FEATURES = [
     stat: '10×',
     statLabel: 'Faster Deployment',
     accent: '#FF9932',
-    size: 'large',
+    size: 'small',
     icon: (
       `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>

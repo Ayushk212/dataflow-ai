@@ -194,7 +194,7 @@ export default function Features() {
 
         {/* Desktop: Bento Grid */}
         {!isMobile && (
-          <div className="grid md:grid-cols-3 gap-4" role="list" aria-label="Features grid">
+          <div className="grid md:grid-cols-3 gap-4 auto-rows-fr" role="list" aria-label="Features grid">
             {FEATURES.map(feature => (
               <BentoCard
                 key={feature.id}
