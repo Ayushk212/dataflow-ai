@@ -187,7 +187,7 @@ export default function Pricing() {
         </div>
 
         {/* Cards grid — parent NEVER re-renders on price change */}
-        <div className="grid md:grid-cols-3 gap-6 items-start">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {TIERS.map(tierKey => (
             <TierCard key={tierKey} tierKey={tierKey} />
           ))}
