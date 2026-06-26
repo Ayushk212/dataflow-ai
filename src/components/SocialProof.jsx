@@ -1,31 +1,5 @@
 import { useReveal } from '../hooks/useReveal.js'
 
-const TESTIMONIALS = [
-  {
-    quote: "We replaced 3 legacy ETL tools with DataFlow AI and cut pipeline failures by 94%. The agent mesh handles edge cases our old system couldn't even detect.",
-    author: 'Priya Mehta',
-    role: 'Head of Data Engineering',
-    company: 'Aetna Digital',
-    avatar: 'PM',
-    color: '#FFC801',
-  },
-  {
-    quote: "The visual workflow builder let our ops team build automations without touching the codebase. Deploy time went from weeks to hours.",
-    author: 'James Okafor',
-    role: 'CTO',
-    company: 'Cigna Smart Health',
-    avatar: 'JO',
-    color: '#FF9932',
-  },
-  {
-    quote: "Sub-50ms latency at 5M records per day. We've thrown everything at DataFlow and it hasn't flinched once.",
-    author: 'Mei-Lin Chen',
-    role: 'Principal Architect',
-    company: 'Deloitte AI Practice',
-    avatar: 'MC',
-    color: '#114C5A',
-  },
-]
 
 const STATS = [
   { val: '500+', label: 'Enterprise teams', sub: 'across 40 countries' },
@@ -77,7 +51,7 @@ export default function SocialProof() {
             id="social-proof-heading"
             className="font-mono font-700 text-3xl md:text-4xl text-oceanic leading-tight max-w-xl"
           >
-            Proven neural solutions.
+            Proven Neural Solutions.
           </h2>
           <p className="mt-4 font-sans text-nocturnal/70 text-lg max-w-lg">
             We partner with industry leaders to deploy AI agents that solve complex
@@ -130,42 +104,6 @@ export default function SocialProof() {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t, i) => (
-            <blockquote
-              key={i}
-              className="testimonial-card bg-white border border-nocturnal/8 rounded-2xl p-7 flex flex-col gap-5"
-            >
-              {/* Stars */}
-              <div className="flex gap-0.5" aria-label="5 star rating">
-                {Array.from({ length: 5 }, (_, j) => (
-                  <svg key={j} width="14" height="14" viewBox="0 0 14 14" fill="#FFC801" aria-hidden="true">
-                    <path d="M7 1l1.6 3.3 3.6.5-2.6 2.5.6 3.6L7 9.2l-3.2 1.7.6-3.6L1.8 4.8l3.6-.5L7 1z"/>
-                  </svg>
-                ))}
-              </div>
-
-              <p className="font-sans text-sm text-nocturnal/80 leading-relaxed flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              <footer className="flex items-center gap-3">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 font-mono text-xs font-700"
-                  style={{ background: `${t.color}20`, color: t.color }}
-                  aria-hidden="true"
-                >
-                  {t.avatar}
-                </div>
-                <div>
-                  <div className="font-sans text-sm font-600 text-oceanic">{t.author}</div>
-                  <div className="font-sans text-xs text-nocturnal/50">{t.role} · {t.company}</div>
-                </div>
-              </footer>
-            </blockquote>
-          ))}
-        </div>
       </div>
     </section>
   )

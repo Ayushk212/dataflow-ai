@@ -180,7 +180,7 @@ export default function Features() {
             <span className="font-mono text-xs text-forsythia uppercase tracking-widest">Technical Capabilities</span>
           </div>
           <h2 id="features-heading" className="font-mono font-700 text-3xl md:text-4xl text-arctic leading-tight">
-            Built for the way data actually moves.
+            Built for the Way Data Actually Moves.
           </h2>
           <p className="mt-4 font-sans text-mystic text-lg leading-relaxed">
             Every feature in DataFlow AI is engineered for production-grade reliability —

@@ -92,12 +92,12 @@ export default function Hero() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-saffron/10 blur-[100px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center">
         {/* Left — Copy */}
         <div>
 
           <h1 className="hero-headline font-mono font-700 text-4xl md:text-5xl lg:text-6xl text-arctic leading-[1.08] tracking-tight">
-            Automate your{' '}
+            Automate Your{' '}
             <span
               className="relative"
               style={{
@@ -107,9 +107,9 @@ export default function Hero() {
                 backgroundClip: 'text',
               }}
             >
-              data pipeline
+              Data Pipeline
             </span>
-            {' '}with AI agents.
+            {' '}with AI Agents.
           </h1>
 
           <p className="hero-sub mt-6 font-sans text-lg text-mystic leading-relaxed max-w-lg">
@@ -132,18 +132,16 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Stats row */}
-          <div className="mt-12 flex gap-8 flex-wrap">
-            {[
-              { val: '99.9%', label: 'Uptime SLA' },
-              { val: '8.4M',  label: 'Records / mo' },
-              { val: '< 50ms', label: 'Avg Latency' },
-            ].map(s => (
-              <div key={s.val}>
-                <div className="font-mono font-700 text-2xl text-forsythia">{s.val}</div>
-                <div className="font-sans text-xs text-mystic mt-0.5 uppercase tracking-wider">{s.label}</div>
-              </div>
-            ))}
+          {/* Trusted by row */}
+          <div className="mt-14 flex flex-col gap-4">
+            <p className="font-sans text-sm text-mystic/60">Trusted by engineering teams at</p>
+            <div className="flex gap-3 flex-wrap">
+              {['STRIPE', 'VERCEL', 'NOTION', 'LINEAR'].map(company => (
+                <div key={company} className="px-4 py-2 rounded-lg border border-white/10 bg-nocturnal/20 font-mono text-xs font-700 text-mystic/80 tracking-widest uppercase transition-colors hover:border-forsythia/30">
+                  {company}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -179,20 +177,25 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust ticker */}
-      <div className="relative border-t border-white/5 py-6 overflow-hidden" aria-label="Trusted by leading companies">
-        <p className="text-center font-sans text-xs text-mystic/50 uppercase tracking-widest mb-4">
-          Trusted by teams at
-        </p>
-        <div className="overflow-hidden">
-          <div className="ticker-track">
-            {[...TICKER_ITEMS, ...TICKER_ITEMS].map((name, i) => (
-              <span
-                key={i}
-                className="font-mono text-sm text-mystic/60 mx-10 whitespace-nowrap"
-              >
-                {name}
-              </span>
+      {/* Global Scale Stats */}
+      <div className="relative border-t border-white/5 bg-nocturnal/20 py-12 overflow-hidden" aria-label="Platform Statistics">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              { val: '8B+', label: 'Events processed daily', color: 'text-arctic' },
+              { val: '38ms', label: 'P99 latency at scale', color: 'text-forsythia' },
+              { val: '150+', label: 'Source connectors', color: 'text-arctic' },
+              { val: '99.99%', label: 'Platform uptime (90d)', color: 'text-saffron' },
+              { val: '2.4k+', label: 'Engineering teams', color: 'text-arctic' },
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col items-center justify-center text-center py-4 md:py-0 px-2">
+                <div className={`font-mono font-700 text-4xl md:text-5xl tracking-tight mb-2 ${stat.color}`}>
+                  {stat.val}
+                </div>
+                <div className="font-sans text-xs text-mystic/60 uppercase tracking-widest">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </div>
         </div>
