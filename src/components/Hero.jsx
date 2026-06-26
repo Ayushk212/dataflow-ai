@@ -95,10 +95,6 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
         {/* Left — Copy */}
         <div>
-          <div className="hero-badge inline-flex items-center gap-2 border border-forsythia/30 bg-forsythia/8 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-forsythia animate-pulse" aria-hidden="true" />
-            <span className="font-mono text-xs text-forsythia tracking-widest uppercase">Live — v3.2 Now Available</span>
-          </div>
 
           <h1 className="hero-headline font-mono font-700 text-4xl md:text-5xl lg:text-6xl text-arctic leading-[1.08] tracking-tight">
             Automate your{' '}
