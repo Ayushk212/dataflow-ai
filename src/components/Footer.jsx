@@ -10,80 +10,198 @@ export default function Footer() {
   return (
     <footer role="contentinfo" style={{ background: '#0A1117' }}>
 
-      {/* ── Top divider — thick forsythia accent bar ── */}
-      <div style={{ height: '3px', background: 'linear-gradient(90deg, #FFC801 0%, #FF9932 50%, transparent 100%)' }} />
-
-      {/* ── CTA band — Arctic Powder bg, visually loud break from page ── */}
-      <div style={{ background: '#F1F6F4' }}>
-        <div className="max-w-7xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest mb-2" style={{ color: '#FF9932' }}>
-              No credit card required
-            </p>
-            <h2 className="font-mono font-700 text-3xl md:text-4xl leading-tight" style={{ color: '#172B36' }}>
-              Start automating<br />in under 5 minutes.
-            </h2>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-            <a
-              href="#pricing"
-              className="btn-primary font-mono font-700 text-sm px-8 py-4 rounded-xl text-center"
-              style={{ background: '#172B36', color: '#FFC801' }}
-            >
-              Build a Workflow →
-            </a>
-            <a
-              href="#features"
-              className="btn-ghost font-sans font-500 text-sm px-8 py-4 rounded-xl text-center"
-              style={{ border: '1.5px solid #172B36', color: '#172B36' }}
-              onClick={e => e.preventDefault()}
-            >
-              See the Docs
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Newsletter bar — Nocturnal Expedition strip ── */}
-      <div style={{ background: '#114C5A' }}>
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center gap-4">
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M2 4h14v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z" stroke="#FFC801" strokeWidth="1.3"/>
-              <path d="M2 4l7 7 7-7" stroke="#FFC801" strokeWidth="1.3" strokeLinecap="round"/>
-            </svg>
-            <span className="font-mono text-sm font-600" style={{ color: '#F1F6F4' }}>
-              DataFlow Weekly
-            </span>
-            <span className="font-sans text-xs" style={{ color: 'rgba(217,232,226,0.55)' }}>
-              — AI automation insights, no fluff.
-            </span>
-          </div>
-          <div className="flex gap-2 flex-1 max-w-md sm:ml-auto">
-            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="you@company.com"
-              className="flex-1 rounded-lg px-4 py-2.5 font-sans text-sm outline-none"
+      {/* ── Unified CTA + Newsletter card ── */}
+      <div style={{ background: '#0A1117', padding: '60px 0 0' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Outer glow card */}
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              padding: '2px',
+              background: 'linear-gradient(135deg, rgba(255,200,1,0.35) 0%, rgba(255,153,50,0.2) 40%, rgba(17,76,90,0.4) 100%)',
+              boxShadow: '0 0 60px rgba(255,200,1,0.06), 0 24px 64px rgba(0,0,0,0.5)',
+            }}
+          >
+            {/* Inner card */}
+            <div
               style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                color: '#F1F6F4',
+                borderRadius: '18px',
+                background: 'linear-gradient(145deg, #111C26 0%, #0D1920 60%, #0A1117 100%)',
+                overflow: 'hidden',
               }}
-            />
-            <button
-              type="button"
-              className="btn-primary font-mono font-700 text-sm px-5 py-2.5 rounded-lg whitespace-nowrap"
-              style={{ background: '#FFC801', color: '#172B36' }}
             >
-              Subscribe
-            </button>
+              {/* Subtle top-left glow orb */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  top: '-60px',
+                  left: '-40px',
+                  width: '300px',
+                  height: '300px',
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(255,200,1,0.07) 0%, transparent 70%)',
+                  pointerEvents: 'none',
+                }}
+              />
+
+              <div className="flex flex-col lg:flex-row">
+
+                {/* ── LEFT: CTA ── */}
+                <div
+                  className="flex flex-col justify-center px-10 py-12 flex-1"
+                  style={{ position: 'relative' }}
+                >
+                  {/* Label badge */}
+                  <div
+                    className="inline-flex items-center gap-2 mb-5 self-start px-3 py-1 rounded-full"
+                    style={{
+                      background: 'rgba(255,200,1,0.1)',
+                      border: '1px solid rgba(255,200,1,0.2)',
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{ background: '#FFC801' }}
+                      aria-hidden="true"
+                    />
+                    <span className="font-mono text-xs uppercase tracking-widest" style={{ color: '#FFC801' }}>
+                      No credit card required
+                    </span>
+                  </div>
+
+                  <h2
+                    className="font-mono font-700 leading-tight mb-6"
+                    style={{ color: '#F1F6F4', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
+                  >
+                    Start automating<br />
+                    <span style={{ color: '#FFC801' }}>in under 5 minutes.</span>
+                  </h2>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="#pricing"
+                      className="font-mono font-700 text-sm px-7 py-3.5 rounded-xl text-center transition-all duration-200"
+                      style={{
+                        background: '#FFC801',
+                        color: '#172B36',
+                        boxShadow: '0 4px 20px rgba(255,200,1,0.25)',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#ffd340'; e.currentTarget.style.boxShadow = '0 6px 28px rgba(255,200,1,0.4)' }}
+                      onMouseLeave={e => { e.currentTarget.style.background = '#FFC801'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,200,1,0.25)' }}
+                    >
+                      Build a Workflow →
+                    </a>
+                    <a
+                      href="#features"
+                      className="font-sans text-sm px-7 py-3.5 rounded-xl text-center transition-all duration-200"
+                      style={{
+                        border: '1.5px solid rgba(241,246,244,0.15)',
+                        color: 'rgba(241,246,244,0.7)',
+                      }}
+                      onClick={e => e.preventDefault()}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(241,246,244,0.35)'; e.currentTarget.style.color = '#F1F6F4' }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(241,246,244,0.15)'; e.currentTarget.style.color = 'rgba(241,246,244,0.7)' }}
+                    >
+                      See the Docs
+                    </a>
+                  </div>
+                </div>
+
+                {/* ── Vertical divider ── */}
+                <div
+                  className="hidden lg:block flex-shrink-0"
+                  style={{
+                    width: '1px',
+                    margin: '32px 0',
+                    background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent)',
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* ── Horizontal divider (mobile) ── */}
+                <div
+                  className="lg:hidden mx-10"
+                  style={{
+                    height: '1px',
+                    background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent)',
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* ── RIGHT: Newsletter ── */}
+                <div className="flex flex-col justify-center px-10 py-12 flex-1">
+                  {/* Newsletter heading */}
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(255,200,1,0.12)', border: '1px solid rgba(255,200,1,0.2)' }}
+                    >
+                      <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M2 4h14v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z" stroke="#FFC801" strokeWidth="1.4"/>
+                        <path d="M2 4l7 7 7-7" stroke="#FFC801" strokeWidth="1.4" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-mono font-700 text-sm" style={{ color: '#F1F6F4' }}>
+                        DataFlow Weekly
+                      </p>
+                      <p className="font-sans text-xs" style={{ color: 'rgba(217,232,226,0.45)' }}>
+                        AI automation insights — no fluff.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Trust line */}
+                  <p className="font-sans text-xs mb-6 mt-3" style={{ color: 'rgba(217,232,226,0.35)' }}>
+                    Join&nbsp;<span style={{ color: 'rgba(255,200,1,0.8)' }}>4,200+</span> engineers &amp; data teams getting the weekly edge.
+                  </p>
+
+                  {/* Email input */}
+                  <div
+                    className="flex gap-2 rounded-xl p-1.5"
+                    style={{
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                    }}
+                  >
+                    <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+                    <input
+                      id="newsletter-email"
+                      type="email"
+                      placeholder="you@company.com"
+                      className="flex-1 bg-transparent px-3 py-2 font-sans text-sm outline-none"
+                      style={{ color: '#F1F6F4' }}
+                    />
+                    <button
+                      type="button"
+                      className="font-mono font-700 text-sm px-5 py-2 rounded-lg whitespace-nowrap flex-shrink-0 transition-all duration-200"
+                      style={{
+                        background: '#FFC801',
+                        color: '#172B36',
+                        boxShadow: '0 2px 12px rgba(255,200,1,0.2)',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#ffd340'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = '#FFC801'; }}
+                    >
+                      Subscribe
+                    </button>
+                  </div>
+
+                  {/* Fine print */}
+                  <p className="font-sans text-xs mt-3" style={{ color: 'rgba(217,232,226,0.25)' }}>
+                    Unsubscribe at any time. We respect your privacy.
+                  </p>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Main footer body — near-black, clearly separate ── */}
+      {/* ── Main footer body ── */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         {/* Brand col */}
         <div className="col-span-2 md:col-span-1">
@@ -168,7 +286,6 @@ export default function Footer() {
           <p className="font-sans text-xs" style={{ color: 'rgba(217,232,226,0.25)' }}>
             © {year} DataFlow AI, Inc. All rights reserved.
           </p>
-          {/* Big oversized wordmark — like the reference video */}
           <p className="font-mono text-xs tracking-[0.3em] uppercase"
             style={{ color: 'rgba(217,232,226,0.1)' }}>
             dataflow · ai · automation
