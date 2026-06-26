@@ -1,16 +1,43 @@
-# React + Vite
+# DataFlow AI — FrontEnd Battle 3.0 Submission
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> AI-driven data automation platform landing page built for the VibeCoding Competition.
 
-Currently, two official plugins are available:
+## 🔗 Links
+- **Live Demo:** [https://dataflow-ai.vercel.app](https://dataflow-ai.vercel.app)
+- **Demo Video:** [Google Drive Link]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 Tech Stack
+- React 18 + Vite
+- Tailwind CSS v3
+- Vanilla CSS Animations / Web Animations API
+- Zero UI libraries (no Radix, Shadcn, Framer Motion)
 
-## React Compiler
+## ⚡ Core Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Feature 1 — Matrix Pricing Engine
+Dynamic pricing computed via a multi-dimensional config object — never hardcoded. Formula: `base × billing_multiplier × currency_tariff`. State isolation via `useSyncExternalStore` + a custom pub/sub store ensures only the price leaf node re-renders on toggle — no parent reflows.
 
-## Expanding the Oxlint configuration
+### Feature 2 — Bento-to-Accordion with Context Transfer
+Desktop renders a hover-interactive Bento Grid. Mobile renders a touch-optimized Accordion. A `ResizeObserver` on `<html>` detects breakpoint crossings and programmatically transfers the active bento index to the accordion open state — zero dependency, pure CSS `max-height` transitions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🎨 Design Tokens (from provided assets)
+| Token | Value |
+|---|---|
+| Forsythia | `#FFC801` |
+| Oceanic Noir | `#172B36` |
+| Nocturnal Expedition | `#114C5A` |
+| Arctic Powder | `#F1F6F4` |
+| Deep Saffron | `#FF9932` |
+| Heading Font | JetBrains Mono |
+| Body Font | Inter |
+
+## 🚀 Running Locally
+```bash
+npm install
+npm run dev
+```
+
+## 📦 Build
+```bash
+npm run build
+```
